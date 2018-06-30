@@ -4,16 +4,6 @@ import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 
 class CreateToDoItem extends React.Component {
-  // static propTypes = {
-  //   hasToDo: PropTypes.bool,
-  //   classes: PropTypes.shape({}),
-  //   onToDoItemCreate: PropTypes.require
-  // };
-
-  static defaultProps = {
-    hasToDo: false
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -53,13 +43,18 @@ class CreateToDoItem extends React.Component {
       <div className={classes.root}>
         {this.props.hasToDo ? <button>smth</button> : null}
         <input
+          className={classes.input}
           type="text"
           placeholder="What needs to be done"
           value={value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
         />
-        <button disabled={value.trim() === ''} onClick={this.handleClick}>
+        <button
+          className={classes.button}
+          disabled={value.trim() === ''}
+          onClick={this.handleClick}
+        >
           Create
         </button>
       </div>

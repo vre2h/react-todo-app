@@ -6,7 +6,7 @@ class Main extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.className}>
+      <div className={classes.root}>
         <div>todos</div>
       </div>
     );

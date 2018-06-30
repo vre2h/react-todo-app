@@ -30,7 +30,10 @@ class Main extends React.Component {
     return (
       <div className={classes.root}>
         <h1 className={classes.title}>todos</h1>
-        <CreateToDo onToDoItemCreate={this.onToDoItemCreate} />
+        <CreateToDo
+          hasToDo={this.state.todo.length > 0}
+          onToDoItemCreate={this.onToDoItemCreate}
+        />
         <ul>{todo.map((value, idx) => <li key={idx}>{value}</li>)}</ul>
       </div>
     );

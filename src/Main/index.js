@@ -29,12 +29,14 @@ class Main extends React.Component {
 
     return (
       <div className={classes.root}>
-        <h1 className={classes.title}>todos</h1>
-        <CreateToDoItem
-          hasToDo={this.state.todo.length > 0}
-          onToDoItemCreate={this.onToDoItemCreate}
-        />
-        <ToDoList todo={todo} />
+        <div className={classes.wrapper}>
+          <h1 className={classes.title}>todos</h1>
+          <CreateToDoItem
+            hasToDo={this.state.todo.length > 0}
+            onToDoItemCreate={this.onToDoItemCreate}
+          />
+          <ToDoList todo={todo} />
+        </div>
       </div>
     );
   }

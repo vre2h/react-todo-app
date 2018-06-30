@@ -8,10 +8,17 @@ export default {
     height: '100vh'
   },
   title: {
-    lineHeight: '100px',
-    fontSize: '100px',
+    lineHeight: '170px',
+    fontSize: '170px',
     fontWeight: '300',
     color: 'rgba(175, 47, 47, 0.15);',
     margin: '0'
+  },
+  wrapper: {
+    width: '320px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };

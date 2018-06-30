@@ -7,7 +7,7 @@ class Main extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <div>todos</div>
+        <h1 className={classes.title}>todos</h1>
       </div>
     );
   }

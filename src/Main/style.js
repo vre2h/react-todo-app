@@ -4,6 +4,13 @@ export default {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#f0f'
+    width: '100vw',
+    height: '100vh'
+  },
+  title: {
+    lineHeight: '100px',
+    fontSize: '100px',
+    fontWeight: '300',
+    color: 'rgba(175, 47, 47, 0.15);'
   }
 };

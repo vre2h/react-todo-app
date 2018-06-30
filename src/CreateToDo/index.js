@@ -1,8 +1,19 @@
 import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 
-class CreateToDo extends React.Component {
+class CreateToDoItem extends React.Component {
+  // static propTypes = {
+  //   hasToDo: PropTypes.bool,
+  //   classes: PropTypes.shape({}),
+  //   onToDoItemCreate: PropTypes.require
+  // };
+
+  static defaultProps = {
+    hasToDo: false
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -56,4 +67,4 @@ class CreateToDo extends React.Component {
   }
 }
 
-export default injectSheet(style)(CreateToDo);
+export default injectSheet(style)(CreateToDoItem);

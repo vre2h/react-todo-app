@@ -11,6 +11,7 @@ class CreateToDo extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
@@ -19,25 +20,38 @@ class CreateToDo extends React.Component {
     });
   }
 
-  handleKeyDown(e) {
+  handleClick(e) {
     const { value } = this.state;
+    if (value.trim() !== '') {
+      this.setState({ value: '' });
+      this.props.onToDoItemCreate(this.state.value);
+    }
+  }
+
+  handleKeyDown(e) {
     if (e.keyCode === 13) {
-      if (value.trim() !== '') {
-        this.props.onToDoItemCreate(this.state.value);
-      }
+      this.handleClick();
     }
   }
 
   render() {
     const { value } = this.state;
+    const { classes } = this.props;
+
     return (
-      <input
-        type="text"
-        placeholder="What needs to be done"
-        value={value}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-      />
+      <div className={classes.root}>
+        {this.props.hasToDo ? <button>smth</button> : null}
+        <input
+          type="text"
+          placeholder="What needs to be done"
+          value={value}
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+        />
+        <button disabled={value.trim() === ''} onClick={this.handleClick}>
+          Create
+        </button>
+      </div>
     );
   }
 }

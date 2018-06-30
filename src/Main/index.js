@@ -1,8 +1,8 @@
 import React from 'react';
 import injectSheet from 'react-jss';
 
-import CreateToDo from '../CreateToDo';
-
+import CreateToDoItem from '../CreateToDo';
+import ToDoList from '../ToDoList';
 import style from './style';
 
 class Main extends React.Component {
@@ -30,11 +30,11 @@ class Main extends React.Component {
     return (
       <div className={classes.root}>
         <h1 className={classes.title}>todos</h1>
-        <CreateToDo
+        <CreateToDoItem
           hasToDo={this.state.todo.length > 0}
           onToDoItemCreate={this.onToDoItemCreate}
         />
-        <ul>{todo.map((value, idx) => <li key={idx}>{value}</li>)}</ul>
+        <ToDoList todo={todo} />
       </div>
     );
   }

@@ -56,8 +56,7 @@ export default {
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
     fontSize: '18px',
     '&:hover': {
-      color: '#fff',
-      backgroundColor: '#212121'
+      color: 'burlywood'
     }
   }
 };

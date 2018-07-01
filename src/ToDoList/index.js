@@ -3,7 +3,7 @@ import style from './style';
 import injectSheet from 'react-jss';
 
 import Button from '../Button';
-import Checker from '../Checker';
+import ListItem from '../ListItem';
 
 import { markToDo, removeToDo } from './ListFilter';
 
@@ -40,42 +40,25 @@ class ToDoList extends React.Component {
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
-          {todos.map(({ value, isComplete }, idx) => (
-            <div className={classes['list__item-wrapper']}>
-              <li
-                className={classes.list__item}
-                onClick={this.handleClick.bind(this, {
-                  value,
-                  isComplete,
-                  idx
-                })}
-                key={idx}
-              >
-                <Checker
-                  checked={isComplete}
-                  onChange={this.handleChange.bind(this, {
-                    value,
-                    isComplete,
-                    idx
-                  })}
-                  id="list__item-input"
-                  for="list__item-input"
-                  isComplete={isComplete}
-                  value={value}
+          {todos.map(({ value, isComplete }, idx) => {
+            const todoInfo = { value, isComplete, idx };
+            return (
+              <div className={classes['list__item-wrapper']} key={idx}>
+                <ListItem
+                  className={classes.list__item}
+                  onClick={this.handleClick.bind(this, todoInfo)}
+                  onMark={this.handleChange.bind(this, todoInfo)}
+                  todoInfo={todoInfo}
                 />
-              </li>
-              <Button
-                className={classes['list__btn-del']}
-                onClick={this.handleRemover.bind(this, {
-                  value,
-                  isComplete,
-                  idx
-                })}
-                value="Clear"
-                disable={false}
-              />
-            </div>
-          ))}
+                <Button
+                  className={classes['list__btn-del']}
+                  onClick={this.handleRemover.bind(this, todoInfo)}
+                  value="Clear"
+                  disable={false}
+                />
+              </div>
+            );
+          })}
         </ul>
         <div className={classes.root}>
           <span>Tasks Left: {leftItems}</span>

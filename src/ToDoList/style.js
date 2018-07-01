@@ -32,12 +32,8 @@ export default {
     flexGrow: '1',
     alignItems: 'center',
     padding: '15px',
-    fontSize: '18px',
     border: '1px solid #e9e9e9',
-    borderTop: '0',
-    cursor: 'pointer',
-    color: '#212121',
-    transition: '.5s'
+    borderTop: '0'
   },
 
   filter__btn: {

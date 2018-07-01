@@ -29,13 +29,15 @@ export default {
   list__item: {
     position: 'relative',
     display: 'flex',
+    flexGrow: '1',
     alignItems: 'center',
     padding: '15px',
     fontSize: '18px',
     border: '1px solid #e9e9e9',
     borderTop: '0',
     cursor: 'pointer',
-    color: '#212121'
+    color: '#212121',
+    transition: '.5s'
   },
 
   list__label: {
@@ -86,5 +88,27 @@ export default {
     '&:hover': {
       color: 'burlywood'
     }
+  },
+  'list__btn-del': {
+    position: 'absolute',
+    right: '0',
+    zIndex: '200',
+    height: '100%',
+    width: '49px',
+    border: 'none',
+    borderLeft: '1px solid #e9e9e9',
+    background: 'transparent',
+    cursor: 'pointer',
+    fontFamily: "'Yanone Kaffeesatz', sans-serif",
+    fontSize: '18px',
+    transition: '.5s',
+    '&:hover': {
+      color: 'burlywood'
+    }
+  },
+
+  'list__item-wrapper': {
+    position: 'relative',
+    display: 'flex'
   }
 };

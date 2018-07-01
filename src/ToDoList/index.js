@@ -2,7 +2,7 @@ import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
 
-import { markToDo } from './ListFilter';
+import { markToDo, removeToDo } from './ListFilter';
 
 class ToDoList extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class ToDoList extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleRemover = this.handleRemover.bind(this);
   }
 
   handleClick(todo, e) {
@@ -17,8 +18,11 @@ class ToDoList extends React.Component {
   }
 
   handleChange(todo) {
-    console.log('a');
     this.props.handleToDoItemMaker(markToDo(todo, this.props.todos));
+  }
+
+  handleRemover(todo) {
+    this.props.handleToDoItemRemover(removeToDo(todo, this.props.todos));
   }
 
   render() {
@@ -34,39 +38,64 @@ class ToDoList extends React.Component {
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
           {todos.map(({ value, isComplete }, idx) => (
-            <li
-              className={classes.list__item}
-              key={idx}
-              onClick={this.handleClick.bind(this, {
-                value,
-                isComplete,
-                idx
-              })}
-            >
-              <input
-                type="checkbox"
-                id="list__item-input"
-                className={classes.list__checkbox}
-                checked={isComplete}
-                onChange={this.handleChange.bind(this, {
+            <div className={classes['list__item-wrapper']}>
+              <li
+                className={classes.list__item}
+                onClick={this.handleClick.bind(this, {
                   value,
                   isComplete,
                   idx
                 })}
-              />{' '}
-              <label className={classes.list__label} htmlFor="list__item-input">
-                {value}
-              </label>
-              <span className={classes.customCheckbox}>
-                <span
-                  className={
-                    isComplete ? classes['customCheckbox--mark'] : null
-                  }
+                key={idx}
+              >
+                <input
+                  type="checkbox"
+                  id="list__item-input"
+                  className={classes.list__checkbox}
+                  checked={isComplete}
+                  onChange={this.handleChange.bind(this, {
+                    value,
+                    isComplete,
+                    idx
+                  })}
+                />{' '}
+                <label
+                  className={classes.list__label}
+                  htmlFor="list__item-input"
                 >
-                  &#10003;
+                  {value}
+                </label>
+                <span className={classes.customCheckbox}>
+                  <span
+                    className={
+                      isComplete ? classes['customCheckbox--mark'] : null
+                    }
+                  >
+                    &#10003;
+                  </span>
                 </span>
-              </span>
-            </li>
+                {/* <button
+                  className={classes['list__btn-del']}
+                  onClick={this.handleRemover.bind(this, {
+                    value,
+                    isComplete,
+                    idx
+                  })}
+                >
+                  Clear
+                </button> */}
+              </li>
+              <button
+                className={classes['list__btn-del']}
+                onClick={this.handleRemover.bind(this, {
+                  value,
+                  isComplete,
+                  idx
+                })}
+              >
+                Clear
+              </button>{' '}
+            </div>
           ))}
         </ul>
         <div className={classes.root}>

@@ -21,15 +21,14 @@ export default {
     right: '0',
     height: '100%',
     border: '1px solid #ededed',
-    color: '#000',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
     cursor: 'pointer',
     fontSize: '18px',
-    backgroundColor: '#fff',
     transition: '.5s',
+    backgroundColor: '#212121',
+    color: '#fff',
     '&:hover': {
-      backgroundColor: '#212121',
-      color: '#fff'
+      color: 'burlywood'
     }
   },
 

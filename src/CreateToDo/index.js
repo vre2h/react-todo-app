@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class CreateToDoItem extends React.Component {
   constructor(props) {
@@ -41,7 +41,9 @@ class CreateToDoItem extends React.Component {
 
     return (
       <div className={classes.root}>
-        {this.props.hasToDo ? <button>smth</button> : null}
+        {this.props.hasToDo ? (
+          <input type="checkbox" className={classes.toggleAll} />
+        ) : null}
         <input
           className={classes.input}
           type="text"

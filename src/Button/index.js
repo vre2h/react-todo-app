@@ -1,10 +1,13 @@
 import React from 'react';
+import injectSheet from 'react-jss';
 
-export default class Button extends React.Component {
+import style from './style';
+
+class Button extends React.Component {
   render() {
     return (
       <button
-        className={this.props.className}
+        className={`${this.props.className} ${this.props.classes.default}`}
         disabled={this.props.disabled}
         onClick={this.props.onClick}
       >
@@ -13,3 +16,5 @@ export default class Button extends React.Component {
     );
   }
 }
+
+export default injectSheet(style)(Button);

@@ -2,6 +2,8 @@ import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
 
+import Button from '../Button';
+
 import { markToDo, removeToDo } from './ListFilter';
 
 class ToDoList extends React.Component {
@@ -74,36 +76,38 @@ class ToDoList extends React.Component {
                     &#10003;
                   </span>
                 </span>
-                {/* <button
-                  className={classes['list__btn-del']}
-                  onClick={this.handleRemover.bind(this, {
-                    value,
-                    isComplete,
-                    idx
-                  })}
-                >
-                  Clear
-                </button> */}
               </li>
-              <button
+              <Button
                 className={classes['list__btn-del']}
                 onClick={this.handleRemover.bind(this, {
                   value,
                   isComplete,
                   idx
                 })}
-              >
-                Clear
-              </button>{' '}
+                value="Clear"
+                disable={false}
+              />
             </div>
           ))}
         </ul>
         <div className={classes.root}>
           <span>Tasks Left: {leftItems}</span>
           <div className={classes.filter}>
-            <button className={classes.filter__btn}> All </button>
-            <button className={classes.filter__btn}> Completed </button>
-            <button className={classes.filter__btn}> Active </button>
+            <Button
+              className={classes.filter__btn}
+              value="All"
+              disable={false}
+            />
+            <Button
+              className={classes.filter__btn}
+              value="Completed"
+              disable={false}
+            />
+            <Button
+              className={classes.filter__btn}
+              value="Active"
+              disable={false}
+            />
           </div>
         </div>
       </div>

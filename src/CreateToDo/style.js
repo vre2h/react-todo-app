@@ -20,18 +20,14 @@ export default {
   button: {
     position: 'absolute',
     right: '0',
-    height: '100%',
+
     width: '50px',
+    height: '100%',
+
     border: '1px solid #ededed',
-    fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    cursor: 'pointer',
-    fontSize: '18px',
-    transition: '.5s',
     backgroundColor: '#212121',
-    color: '#fff',
-    '&:hover': {
-      color: 'burlywood'
-    }
+
+    color: '#fff'
   },
 
   toggleAll: {

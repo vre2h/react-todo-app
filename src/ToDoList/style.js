@@ -82,18 +82,13 @@ export default {
   },
 
   filter__btn: {
-    padding: ' 7px 14px',
     marginLeft: '7px',
+    padding: ' 7px 14px',
+
     border: '1px solid #e9e9e9',
-    background: 'transparent',
-    cursor: 'pointer',
-    transition: '.3s',
-    fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    fontSize: '18px',
-    '&:hover': {
-      color: 'burlywood'
-    }
+    background: 'transparent'
   },
+
   'list__btn-del': {
     position: 'absolute',
     right: '0',
@@ -102,14 +97,7 @@ export default {
     width: '49px',
     border: 'none',
     borderLeft: '1px solid #e9e9e9',
-    background: 'transparent',
-    cursor: 'pointer',
-    fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    fontSize: '18px',
-    transition: '.5s',
-    '&:hover': {
-      color: 'burlywood'
-    }
+    background: 'transparent'
   },
 
   'list__item-wrapper': {

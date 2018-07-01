@@ -3,6 +3,8 @@ import style from './style';
 import injectSheet from 'react-jss';
 // import PropTypes from 'prop-types';
 
+import Button from '../Button';
+
 class CreateToDoItem extends React.Component {
   constructor(props) {
     super(props);
@@ -68,13 +70,12 @@ class CreateToDoItem extends React.Component {
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
         />
-        <button
+        <Button
           className={classes.button}
           disabled={value.trim() === ''}
           onClick={this.handleClick}
-        >
-          Create
-        </button>
+          value="Clear"
+        />
       </div>
     );
   }

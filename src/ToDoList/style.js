@@ -53,7 +53,6 @@ export default {
     cursor: 'pointer',
     transition: '.3s',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    cursor: 'pointer',
     fontSize: '18px',
     '&:hover': {
       color: '#fff',

@@ -11,11 +11,11 @@ class Main extends React.Component {
     super(props);
     this.state = {
       selectedFilter: 'all',
-      todos: []
+      todos: [{ value: 'ds', isComplete: true }]
     };
 
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);
-    this.onToDoItemRemover = this.onToDoItemRemover.bind(this);
+    this.handleToDoItemMaker = this.handleToDoItemMaker.bind(this);
   }
 
   onToDoItemCreate(value) {
@@ -25,7 +25,7 @@ class Main extends React.Component {
     });
   }
 
-  onToDoItemRemover(todos) {
+  handleToDoItemMaker(todos) {
     this.setState({
       todos: todos
     });
@@ -43,7 +43,10 @@ class Main extends React.Component {
             hasToDo={this.state.todos.length > 0}
             onToDoItemCreate={this.onToDoItemCreate}
           />
-          <ToDoList todos={todos} onToDoItemRemover={this.onToDoItemRemover} />
+          <ToDoList
+            todos={todos}
+            handleToDoItemMaker={this.handleToDoItemMaker}
+          />
         </div>
       </div>
     );

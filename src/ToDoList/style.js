@@ -41,7 +41,8 @@ export default {
 
   list__checkbox: {
     '&:checked + label': {
-      textDecoration: 'line-through'
+      textDecoration: 'line-through',
+      color: '#ccc'
     }
   },
 

@@ -11,7 +11,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: '100vh'
+    minHeight: '100vh'
   },
 
   title: {

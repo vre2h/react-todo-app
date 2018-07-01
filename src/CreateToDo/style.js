@@ -3,7 +3,8 @@ export default {
     position: 'relative',
     display: 'flex',
     justifyContent: 'space-between',
-    width: '100%'
+    width: '100%',
+    minHeight: '50px'
   },
 
   input: {
@@ -40,6 +41,10 @@ export default {
     border: '0',
     outline: 'none',
     '-webkit-appearance': 'none',
+    '-moz-appearance': 'none',
+    '-ms-appearance': 'none',
+    '-o-appearance': 'none',
+    appearance: 'none',
     margin: '0',
     '&::before': {
       position: 'absolute',

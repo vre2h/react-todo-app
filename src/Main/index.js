@@ -10,33 +10,40 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: []
+      selectedFilter: 'all',
+      todos: []
     };
 
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);
+    this.onToDoItemRemover = this.onToDoItemRemover.bind(this);
   }
 
   onToDoItemCreate(value) {
-    const { todo } = this.state;
-
+    const { todos } = this.state;
     this.setState({
-      todo: [...todo, value]
+      todos: [...todos, value]
+    });
+  }
+
+  onToDoItemRemover(todos) {
+    this.setState({
+      todos: todos
     });
   }
 
   render() {
     const { classes } = this.props;
-    const { todo } = this.state;
+    const { todos } = this.state;
 
     return (
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <h1 className={classes.title}>todos</h1>
           <CreateToDoItem
-            hasToDo={this.state.todo.length > 0}
+            hasToDo={this.state.todos.length > 0}
             onToDoItemCreate={this.onToDoItemCreate}
           />
-          <ToDoList todo={todo} />
+          <ToDoList todos={todos} onToDoItemRemover={this.onToDoItemRemover} />
         </div>
       </div>
     );

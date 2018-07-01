@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
-// import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
@@ -74,7 +73,7 @@ class CreateToDoItem extends React.Component {
           className={classes.button}
           disabled={value.trim() === ''}
           onClick={this.handleClick}
-          value="Clear"
+          value="Add"
         />
       </div>
     );

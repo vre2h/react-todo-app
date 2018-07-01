@@ -9,7 +9,7 @@ export default {
   input: {
     flexGrow: '1',
     padding: '10px',
-    paddingLeft: '30px',
+    paddingLeft: '40px',
     border: '1px solid #e9e9e9',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
     fontSize: '24px',
@@ -20,6 +20,7 @@ export default {
     position: 'absolute',
     right: '0',
     height: '100%',
+    width: '50px',
     border: '1px solid #ededed',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
     cursor: 'pointer',
@@ -44,13 +45,15 @@ export default {
       position: 'absolute',
       content: '"❯"',
       fontSize: '22px',
-      color: '#e6e6e6',
+      color: '#212121',
       cursor: 'pointer',
       transition: '.2s',
-      marginLeft: '7px'
-    },
-    '&:checked::before': {
-      color: '#212121',
+      marginLeft: '12px'
+    }
+  },
+
+  'toggleAll-down': {
+    '&::before': {
       transform: 'rotate(90deg)'
     }
   }

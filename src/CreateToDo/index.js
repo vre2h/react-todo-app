@@ -48,13 +48,18 @@ class CreateToDoItem extends React.Component {
 
   render() {
     const { value } = this.state.todo;
-    const { classes } = this.props;
+    const { classes, length } = this.props;
 
     return (
       <div className={classes.root}>
-        {this.props.hasToDo ? (
-          <input type="checkbox" className={classes.toggleAll} />
-        ) : null}
+        <input
+          type="checkbox"
+          className={
+            length > 0
+              ? classes['toggleAll-down'] + ' ' + classes['toggleAll']
+              : classes.toggleAll
+          }
+        />
         <input
           className={classes.input}
           type="text"

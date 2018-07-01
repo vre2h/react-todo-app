@@ -11,7 +11,10 @@ class Main extends React.Component {
     super(props);
     this.state = {
       selectedFilter: 'all',
-      todos: [{ value: 'ds', isComplete: true }]
+      todos: [
+        { value: 'React', isComplete: true },
+        { value: 'JS', isComplete: false }
+      ]
     };
 
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);

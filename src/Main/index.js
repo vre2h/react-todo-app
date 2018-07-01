@@ -3,6 +3,7 @@ import injectSheet from 'react-jss';
 
 import CreateToDoItem from '../CreateToDo';
 import ToDoList from '../ToDoList';
+import filterBySelect from './FilterBySelect.js';
 
 import style from './style';
 
@@ -10,7 +11,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFilter: 'all',
+      selectedFilter: 'All',
       todos: [
         { value: 'React', isComplete: true },
         { value: 'JS', isComplete: false }
@@ -20,6 +21,13 @@ class Main extends React.Component {
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);
     this.handleToDoItemMaker = this.handleToDoItemMaker.bind(this);
     this.handleToDoItemRemover = this.handleToDoItemRemover.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  handleFilter(e) {
+    this.setState({
+      selectedFilter: e.target.textContent
+    });
   }
 
   onToDoItemCreate(value) {
@@ -43,9 +51,11 @@ class Main extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { todos } = this.state;
+    const { todos, selectedFilter } = this.state;
 
-    const leftItems = todos.reduce(
+    const filteredTodos = filterBySelect(todos, selectedFilter);
+
+    const leftItems = filteredTodos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
     );
@@ -59,9 +69,10 @@ class Main extends React.Component {
             onToDoItemCreate={this.onToDoItemCreate}
           />
           <ToDoList
-            todos={todos}
+            todos={filteredTodos}
             handleToDoItemMaker={this.handleToDoItemMaker}
             handleToDoItemRemover={this.handleToDoItemRemover}
+            handleFilter={this.handleFilter}
           />
         </div>
       </div>

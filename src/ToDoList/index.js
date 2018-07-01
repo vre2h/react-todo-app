@@ -67,16 +67,19 @@ class ToDoList extends React.Component {
               className={classes.filter__btn}
               value="All"
               disable={false}
+              onClick={this.props.handleFilter}
             />
             <Button
               className={classes.filter__btn}
               value="Completed"
               disable={false}
+              onClick={this.props.handleFilter}
             />
             <Button
               className={classes.filter__btn}
               value="Active"
               disable={false}
+              onClick={this.props.handleFilter}
             />
           </div>
         </div>

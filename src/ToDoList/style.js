@@ -43,6 +43,7 @@ export default {
   list__label: {
     position: 'relative',
     zIndex: '-100',
+    width: '200px',
     margin: '0 10px',
     cursor: 'pointer',
     marginLeft: '20px'
@@ -52,6 +53,10 @@ export default {
     position: 'relative',
     display: 'block',
     '-webkit-appearance': 'none',
+    '-moz-appearance': 'none',
+    '-ms-appearance': 'none',
+    '-o-appearance': 'none',
+    appearance: 'none',
     cursor: 'pointer',
     '&:checked + label': {
       textDecoration: 'line-through',

@@ -3,6 +3,7 @@ import style from './style';
 import injectSheet from 'react-jss';
 
 import Button from '../Button';
+import Checker from '../Checker';
 
 import { markToDo, removeToDo } from './ListFilter';
 
@@ -50,32 +51,18 @@ class ToDoList extends React.Component {
                 })}
                 key={idx}
               >
-                <input
-                  type="checkbox"
-                  id="list__item-input"
-                  className={classes.list__checkbox}
+                <Checker
                   checked={isComplete}
                   onChange={this.handleChange.bind(this, {
                     value,
                     isComplete,
                     idx
                   })}
-                />{' '}
-                <label
-                  className={classes.list__label}
-                  htmlFor="list__item-input"
-                >
-                  {value}
-                </label>
-                <span className={classes.customCheckbox}>
-                  <span
-                    className={
-                      isComplete ? classes['customCheckbox--mark'] : null
-                    }
-                  >
-                    &#10003;
-                  </span>
-                </span>
+                  id="list__item-input"
+                  for="list__item-input"
+                  isComplete={isComplete}
+                  value={value}
+                />
               </li>
               <Button
                 className={classes['list__btn-del']}

@@ -23,7 +23,7 @@ class Checker extends React.Component {
         <span className={classes.customCheckbox}>
           <span
             className={
-              this.props.isComplete ? classes['customCheckbox--mark'] : null
+              this.props.checked ? classes['customCheckbox--mark'] : null
             }
           >
             &#10003;

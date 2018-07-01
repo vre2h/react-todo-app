@@ -16,6 +16,7 @@ class Main extends React.Component {
 
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);
     this.handleToDoItemMaker = this.handleToDoItemMaker.bind(this);
+    this.handleToDoItemRemover = this.handleToDoItemRemover.bind(this);
   }
 
   onToDoItemCreate(value) {
@@ -31,21 +32,33 @@ class Main extends React.Component {
     });
   }
 
+  handleToDoItemRemover(todos) {
+    this.setState({
+      todos: todos
+    });
+  }
+
   render() {
     const { classes } = this.props;
     const { todos } = this.state;
+
+    const leftItems = todos.reduce(
+      (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
+      0
+    );
 
     return (
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <h1 className={classes.title}>todos</h1>
           <CreateToDoItem
-            hasToDo={this.state.todos.length > 0}
+            length={leftItems}
             onToDoItemCreate={this.onToDoItemCreate}
           />
           <ToDoList
             todos={todos}
             handleToDoItemMaker={this.handleToDoItemMaker}
+            handleToDoItemRemover={this.handleToDoItemRemover}
           />
         </div>
       </div>

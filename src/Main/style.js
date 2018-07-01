@@ -10,7 +10,7 @@ export default {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100vw',
+    width: '100%',
     height: '100vh'
   },
 

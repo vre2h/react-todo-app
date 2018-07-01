@@ -2,18 +2,37 @@ import React from 'react';
 import style from './style';
 import injectSheet from 'react-jss';
 
+import { markToDo } from './ListFilter';
+
 class ToDoList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(todo, e) {
+    this.props.onToDoItemRemover(markToDo(todo, this.props.todos));
+  }
+
   render() {
-    const { todo, classes } = this.props;
+    const { classes } = this.props;
+    const { todos } = this.props;
+
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
-          {todo.map((value, idx) => (
-            <li className={classes.list__item} key={idx}>
+          {todos.map(({ value, isComplete }, idx) => (
+            <li
+              className={classes.list__item}
+              key={idx}
+              onClick={this.handleClick.bind(this, { value, isComplete })}
+            >
               <input
                 type="checkbox"
                 id="list__item-input"
                 className={classes.list__checkbox}
+                checked={isComplete}
               />
               <label className={classes.list__label} htmlFor="list__item-input">
                 {value}

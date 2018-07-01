@@ -7,7 +7,10 @@ class CreateToDoItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      todo: {
+        value: '',
+        isComplete: false
+      }
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,15 +20,23 @@ class CreateToDoItem extends React.Component {
 
   handleChange(e) {
     this.setState({
-      value: e.target.value
+      todo: {
+        value: e.target.value,
+        isComplete: false
+      }
     });
   }
 
   handleClick(e) {
-    const { value } = this.state;
+    const { value } = this.state.todo;
     if (value.trim() !== '') {
-      this.setState({ value: '' });
-      this.props.onToDoItemCreate(this.state.value);
+      this.setState({
+        todo: {
+          value: '',
+          isComplete: false
+        }
+      });
+      this.props.onToDoItemCreate(this.state.todo);
     }
   }
 
@@ -36,7 +47,7 @@ class CreateToDoItem extends React.Component {
   }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state.todo;
     const { classes } = this.props;
 
     return (
@@ -47,7 +58,7 @@ class CreateToDoItem extends React.Component {
         <input
           className={classes.input}
           type="text"
-          placeholder="What needs to be done"
+          placeholder="What needs to be done..."
           value={value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}

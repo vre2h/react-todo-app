@@ -18,12 +18,20 @@ export default {
     lineHeight: '150px',
     fontSize: '170px',
     fontWeight: '300',
-    color: titleColors[1],
     margin: '10px 0',
     cursor: 'pointer',
     transition: '.3s',
-    '&:hover': {
-      color: titleColors[0]
+    '&-dark': {
+      color: titleColors[2],
+      '&:hover': {
+        color: titleColors[0]
+      }
+    },
+    '&-light': {
+      color: titleColors[1],
+      '&:hover': {
+        color: titleColors[0]
+      }
     }
   },
   wrapper: {

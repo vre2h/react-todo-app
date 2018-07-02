@@ -15,13 +15,15 @@ class Main extends React.Component {
       todos: [
         { value: 'React', isComplete: true },
         { value: 'JS', isComplete: false }
-      ]
+      ],
+      themes: 'dark'
     };
 
     this.onToDoItemCreate = this.onToDoItemCreate.bind(this);
     this.handleToDoItemMaker = this.handleToDoItemMaker.bind(this);
     this.handleToDoItemRemover = this.handleToDoItemRemover.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   handleFilter(e) {
@@ -49,6 +51,12 @@ class Main extends React.Component {
     });
   }
 
+  toggleTheme() {
+    this.setState(state => ({
+      themes: state.themes === 'dark' ? 'light' : 'dark'
+    }));
+  }
+
   render() {
     const { classes } = this.props;
     const { todos, selectedFilter } = this.state;
@@ -63,7 +71,13 @@ class Main extends React.Component {
     return (
       <div className={classes.root}>
         <div className={classes.wrapper}>
-          <h1 className={classes.title}>todos</h1>
+          <h1
+            onClick={this.toggleTheme}
+            className={`${classes.title}-${this.state.themes} ${classes.title}`}
+          >
+            todos
+          </h1>
+
           <CreateToDoItem
             length={leftItems}
             onToDoItemCreate={this.onToDoItemCreate}

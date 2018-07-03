@@ -40,10 +40,14 @@ class ToDoList extends React.Component {
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
-          {todos.map(({ value, isComplete }, idx) => {
+          {todos.map(({ value, isComplete, id }, idx) => {
             const todoInfo = { value, isComplete, idx };
+
             return (
-              <div className={classes['list__item-wrapper']} key={idx}>
+              <div
+                className={classes['list__item-wrapper']}
+                key={id.toString()}
+              >
                 <ListItem
                   className={classes.list__item}
                   onClick={this.handleClick.bind(this, todoInfo)}

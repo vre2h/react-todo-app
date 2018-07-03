@@ -16,6 +16,8 @@ class CreateToDoItem extends React.Component {
     name: 'Stranger'
   };
 
+  static mainIdx = 0;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +50,11 @@ class CreateToDoItem extends React.Component {
           isComplete: false
         }
       });
-      this.props.onToDoItemCreate(this.state.todo);
+
+      this.props.onToDoItemCreate({
+        ...this.state.todo,
+        id: (CreateToDoItem.mainIdx += 1)
+      });
     }
   }
 

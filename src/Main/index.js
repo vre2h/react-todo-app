@@ -12,10 +12,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       selectedFilter: 'All',
-      todos: [
-        { value: 'React', isComplete: true },
-        { value: 'JS', isComplete: false }
-      ],
+      todos: [],
       themes: 'dark'
     };
 
@@ -34,8 +31,9 @@ class Main extends React.Component {
 
   onToDoItemCreate(value) {
     const { todos } = this.state;
+
     this.setState({
-      todos: [...todos, value]
+      todos: [value, ...todos]
     });
   }
 
@@ -62,7 +60,6 @@ class Main extends React.Component {
     const { todos, selectedFilter } = this.state;
 
     const filteredTodos = filterBySelect(todos, selectedFilter);
-
     const leftItems = filteredTodos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0

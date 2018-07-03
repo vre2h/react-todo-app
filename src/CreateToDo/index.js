@@ -1,10 +1,21 @@
 import React from 'react';
-import style from './style';
 import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
+import style from './style';
+
 class CreateToDoItem extends React.Component {
+  static propTypes = {
+    length: PropTypes.number,
+    onToDoItemCreate: PropTypes.func
+  };
+
+  static defaultProps = {
+    name: 'Stranger'
+  };
+
   constructor(props) {
     super(props);
     this.state = {

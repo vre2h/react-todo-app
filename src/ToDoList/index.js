@@ -36,7 +36,6 @@ class ToDoList extends React.Component {
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
     );
-    console.log('todos', todos);
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
@@ -54,7 +53,7 @@ class ToDoList extends React.Component {
                   onMark={this.handleChange.bind(this, todoInfo)}
                   onRemover={this.handleRemover.bind(this, todoInfo)}
                   todoInfo={todoInfo}
-                  onToDoItemRemove={this.props.onToDoItemRemove.bind(
+                  onToDoItemChange={this.props.onToDoItemChange.bind(
                     this,
                     todoInfo
                   )}

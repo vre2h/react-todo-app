@@ -48,6 +48,7 @@ export default {
     outline: 0,
     fontSize: '18px',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    color: '#ccc'
   }
 };

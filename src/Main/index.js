@@ -47,7 +47,7 @@ class Main extends React.Component {
       {
         value,
         isComplete: todo.isComplete,
-        id: (CreateToDoItem.mainIdx += 1)
+        id: todo.id
       },
       ...todos.slice(index + 1)
     ];

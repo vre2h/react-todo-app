@@ -40,8 +40,7 @@ export default {
     marginLeft: '7px',
     padding: ' 7px 14px',
 
-    border: '1px solid #e9e9e9',
-    background: 'transparent'
+    border: '1px solid #e9e9e9'
   },
 
   'list__btn-del': {

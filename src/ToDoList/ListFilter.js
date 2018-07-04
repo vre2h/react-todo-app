@@ -1,6 +1,6 @@
 const markToDo = (todo, list) => {
   return list.reduce((acc, { value, isComplete, id }, index) => {
-    if (value === todo.value && index === todo.idx) {
+    if (value === todo.value && todo.id === id) {
       return [
         ...acc,
         {
@@ -17,7 +17,7 @@ const markToDo = (todo, list) => {
 
 const removeToDo = (todo, list) => {
   return list.reduce((acc, { value, isComplete, id }, index) => {
-    if (value === todo.value && index === todo.idx) {
+    if (value === todo.value && todo.id === id) {
       return [...acc];
     }
 

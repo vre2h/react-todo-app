@@ -41,5 +41,13 @@ export default {
     marginTop: '-18px',
     fontSize: '45px',
     color: '#3a3a3a'
+  },
+
+  list__edit: {
+    border: 0,
+    outline: 0,
+    fontSize: '18px',
+    fontFamily: "'Yanone Kaffeesatz', sans-serif",
+    fontStyle: 'italic'
   }
 };

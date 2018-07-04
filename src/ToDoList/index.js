@@ -11,9 +11,14 @@ class ToDoList extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      activeBtn: 'All'
+    };
+
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRemover = this.handleRemover.bind(this);
+    this.handleFilterClick = this.handleFilterClick.bind(this);
   }
 
   handleClick(todo, e) {
@@ -28,9 +33,19 @@ class ToDoList extends React.Component {
     this.props.handleToDoItemRemover(removeToDo(todo, this.props.todos));
   }
 
+  handleFilterClick(e) {
+    const { handleFilter } = this.props;
+
+    this.setState({
+      activeBtn: e.target.textContent
+    });
+
+    handleFilter(e);
+  }
+
   render() {
-    const { classes } = this.props;
-    const { todos } = this.props;
+    const { classes, todos } = this.props;
+    const { activeBtn } = this.state;
 
     const leftItems = todos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
@@ -72,22 +87,25 @@ class ToDoList extends React.Component {
           <span>Tasks Left: {leftItems}</span>
           <div className={classes.filter}>
             <Button
-              className={classes.filter__btn}
+              className={`${classes.filter__btn}`}
+              activeBtn={activeBtn}
               value="All"
               disable={false}
-              onClick={this.props.handleFilter}
+              onClick={this.handleFilterClick}
             />
             <Button
               className={classes.filter__btn}
               value="Completed"
+              activeBtn={activeBtn}
               disable={false}
-              onClick={this.props.handleFilter}
+              onClick={this.handleFilterClick}
             />
             <Button
               className={classes.filter__btn}
               value="Active"
+              activeBtn={activeBtn}
               disable={false}
-              onClick={this.props.handleFilter}
+              onClick={this.handleFilterClick}
             />
           </div>
         </div>

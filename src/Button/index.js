@@ -5,13 +5,23 @@ import style from './style';
 
 class Button extends React.Component {
   render() {
+    const {
+      activeBtn,
+      value,
+      className,
+      classes,
+      disabled,
+      onClick
+    } = this.props;
     return (
       <button
-        className={`${this.props.className} ${this.props.classes.default}`}
-        disabled={this.props.disabled}
-        onClick={this.props.onClick}
+        className={`${
+          value === activeBtn ? classes['default--active'] : ''
+        } ${className} ${classes.default}`}
+        disabled={disabled}
+        onClick={onClick}
       >
-        {this.props.value}
+        {value}
       </button>
     );
   }

@@ -31,11 +31,11 @@ class Checker extends React.Component {
 
   handleKeyDown(e) {
     const { value } = this.state;
-    const { onRemover, onToDoItemRemove } = this.props;
+    const { onRemover, onToDoItemChange } = this.props;
 
     if (e.keyCode === 13) {
       if (value.trim() !== '') {
-        onToDoItemRemove(value);
+        onToDoItemChange(value);
         this.setState({
           isEdit: false
         });

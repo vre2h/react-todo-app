@@ -21,7 +21,7 @@ class Main extends React.Component {
     this.handleToDoItemRemover = this.handleToDoItemRemover.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
-    this.onToDoItemRemove = this.onToDoItemRemove.bind(this);
+    this.onToDoItemChange = this.onToDoItemChange.bind(this);
   }
 
   handleFilter(e) {
@@ -38,11 +38,9 @@ class Main extends React.Component {
     });
   }
 
-  onToDoItemRemove(todo, value) {
+  onToDoItemChange(todo, value) {
     const { todos } = this.state;
     const index = todos.findIndex(elem => elem.id === todo.id);
-
-    console.log(todos, todo, index);
 
     const newTodos = [
       ...todos.slice(0, index),
@@ -82,7 +80,6 @@ class Main extends React.Component {
     const { todos, selectedFilter } = this.state;
 
     const filteredTodos = filterBySelect(todos, selectedFilter);
-    console.log(filteredTodos);
     const leftItems = filteredTodos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
@@ -107,7 +104,7 @@ class Main extends React.Component {
             handleToDoItemMaker={this.handleToDoItemMaker}
             handleToDoItemRemover={this.handleToDoItemRemover}
             handleFilter={this.handleFilter}
-            onToDoItemRemove={this.onToDoItemRemove}
+            onToDoItemChange={this.onToDoItemChange}
           />
         </div>
       </div>

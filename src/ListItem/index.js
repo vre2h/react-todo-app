@@ -29,7 +29,7 @@ class ListItem extends React.Component {
           value={value}
           onClick={onClick}
           onRemover={onRemover}
-          onToDoItemRemove={this.props.onToDoItemRemove}
+          onToDoItemChange={this.props.onToDoItemChange}
         />
       </li>
     );

@@ -36,12 +36,12 @@ class ToDoList extends React.Component {
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
     );
-
+    console.log('todos', todos);
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>
           {todos.map(({ value, isComplete, id }, idx) => {
-            const todoInfo = { value, isComplete, idx };
+            const todoInfo = { value, isComplete, id };
 
             return (
               <div
@@ -52,7 +52,12 @@ class ToDoList extends React.Component {
                   className={classes.list__item}
                   onClick={this.handleClick.bind(this, todoInfo)}
                   onMark={this.handleChange.bind(this, todoInfo)}
+                  onRemover={this.handleRemover.bind(this, todoInfo)}
                   todoInfo={todoInfo}
+                  onToDoItemRemove={this.props.onToDoItemRemove.bind(
+                    this,
+                    todoInfo
+                  )}
                 />
                 <Button
                   className={classes['list__btn-del']}

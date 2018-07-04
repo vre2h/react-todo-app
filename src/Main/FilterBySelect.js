@@ -12,7 +12,7 @@ export default (list, selecter) => {
 
   return list.reduce((acc, { value, isComplete, id }) => {
     if (!isComplete) {
-      return [...acc, { value, isComplete }];
+      return [...acc, { value, isComplete, id }];
     }
     return [...acc];
   }, []);

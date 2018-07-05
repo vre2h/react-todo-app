@@ -44,14 +44,13 @@ export default {
   },
 
   'list__btn-del': {
-    position: 'absolute',
-    right: '0',
     zIndex: '200',
-    height: '100%',
-    width: '49px',
-    border: 'none',
-    borderLeft: '1px solid #e9e9e9',
-    background: 'transparent'
+    width: '70px',
+    border: '1px solid #e9e9e9',
+    borderLeft: 'none',
+    borderTop: 'none',
+    background: 'transparent',
+    textAlign: 'center'
   },
 
   'list__item-wrapper': {

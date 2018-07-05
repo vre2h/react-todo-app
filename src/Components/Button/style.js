@@ -1,5 +1,6 @@
 export default {
   default: {
+    padding: '7px 14px',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
     fontSize: '18px',
     backgroundColor: 'transparent',

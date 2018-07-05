@@ -32,6 +32,9 @@ export default {
       '&:hover': {
         color: titleColors[0]
       }
+    },
+    '@media (max-width: 660px)': {
+      fontSize: '150px'
     }
   },
   wrapper: {
@@ -39,6 +42,9 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media (max-width: 660px)': {
+      padding: '10px'
+    }
   }
 };

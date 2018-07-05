@@ -12,22 +12,22 @@ export default {
     padding: '10px',
     paddingLeft: '40px',
     border: '1px solid #e9e9e9',
+    borderRight: 'none',
     fontFamily: "'Yanone Kaffeesatz', sans-serif",
-    fontSize: '24px',
-    boxShadow: 'inset 0 -2px 1px rgba(0,0,0,0.03)'
+    fontSize: '18px',
+    boxShadow: 'inset 0 -2px 1px rgba(0, 0, 0, 0.03)',
+    borderRadius: '0'
   },
 
   button: {
-    position: 'absolute',
-    right: '0',
+    width: '71px',
 
-    width: '50px',
-    height: '100%',
-
-    border: '1px solid #ededed',
+    border: '1px solid #212121',
+    borderBottom: 'none',
     backgroundColor: '#212121',
 
-    color: '#fff'
+    color: '#fff',
+    textAlign: 'center'
   },
 
   toggleAll: {
@@ -36,6 +36,7 @@ export default {
     alignItems: 'center',
     border: '0',
     outline: 'none',
+    opacity: '0',
     '-webkit-appearance': 'none',
     '-moz-appearance': 'none',
     '-ms-appearance': 'none',

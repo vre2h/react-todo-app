@@ -6,6 +6,7 @@ export default {
     '-o-appearance': 'none',
     appearance: 'none',
     cursor: 'pointer',
+    opacity: '0',
     '&:checked + label': {
       textDecoration: 'line-through',
       color: '#ccc'
@@ -27,9 +28,11 @@ export default {
   },
 
   customCheckbox: {
+    position: 'relative',
     order: '-1',
     width: '25px',
     height: '25px',
+    marginRight: '10px',
     border: ' 1px solid #e9e9e9',
     borderRadius: '50%',
     fontSize: 0,
@@ -37,10 +40,11 @@ export default {
   },
 
   'customCheckbox--mark': {
-    display: 'block',
-    marginTop: '-18px',
-    fontSize: '45px',
-    color: '#3a3a3a'
+    position: 'absolute',
+    right: 0,
+    color: '#3a3a3a',
+    transform: 'scale(5)',
+    fontSize: '10px'
   },
 
   list__edit: {

@@ -12,9 +12,17 @@ class Checker extends React.Component {
       value: this.props.value
     };
 
+    this.textInput = React.createRef();
+
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
     this.handleChangeOnEdit = this.handleChangeOnEdit.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.state.isEdit) {
+      setTimeout(() => this.textInput.focus(), 0);
+    }
   }
 
   handleDoubleClick() {
@@ -65,15 +73,17 @@ class Checker extends React.Component {
             value={value}
             onChange={this.handleChangeOnEdit}
             onKeyDown={this.handleKeyDown}
-            autoFocus
+            ref={input => (this.textInput = input)}
+            autoFocus={true}
           />
         ) : (
-          <label
-            className={classes.listLabel}
-            onDoubleClick={this.handleDoubleClick}
+          <span
+            className={classes.list__label}
+            onPointerDown={this.handleDoubleClick}
+            onTouchStart={this.handleDoubleClick}
           >
             {this.props.value}
-          </label>
+          </span>
         )}
         <span className={classes.customCheckbox} onClick={this.props.onClick}>
           <svg

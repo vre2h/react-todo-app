@@ -13,6 +13,7 @@ class Button extends React.Component {
       disabled,
       onClick
     } = this.props;
+
     return (
       <button
         className={`${

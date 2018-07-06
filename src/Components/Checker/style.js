@@ -28,23 +28,22 @@ export default {
   },
 
   customCheckbox: {
+    fill: '#e9e9e9',
     position: 'relative',
     order: '-1',
-    width: '25px',
-    height: '25px',
     marginRight: '10px',
-    border: ' 1px solid #e9e9e9',
-    borderRadius: '50%',
     fontSize: 0,
     transition: '.2s'
   },
 
   'customCheckbox--mark': {
-    position: 'absolute',
-    right: 0,
-    color: '#3a3a3a',
-    transform: 'scale(5)',
-    fontSize: '10px'
+    fill: '#212121',
+
+    display: 'block'
+  },
+
+  'customCheckbox--hide': {
+    display: 'none'
   },
 
   list__edit: {

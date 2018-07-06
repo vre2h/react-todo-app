@@ -14,12 +14,10 @@ export default {
   },
 
   list__label: {
-    position: 'relative',
-    zIndex: '-100',
-    width: '200px',
-    margin: '0 10px',
-    cursor: 'pointer',
-    marginLeft: '20px'
+    flexGrow: 1,
+    height: '100%',
+    paddingTop: 'calc((49px - 20px) / 2)',
+    cursor: 'pointer '
   },
 
   list__checkbox: {
@@ -32,6 +30,7 @@ export default {
     position: 'relative',
     order: '-1',
     marginRight: '10px',
+    marginLeft: '16px',
     fontSize: 0,
     transition: '.2s'
   },

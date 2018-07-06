@@ -30,8 +30,8 @@ export default {
     position: 'relative',
     display: 'flex',
     flexGrow: '1',
+    height: '50px',
     alignItems: 'center',
-    padding: '15px',
     border: '1px solid #e9e9e9',
     borderTop: '0'
   },

@@ -44,13 +44,9 @@ class ToDoList extends React.Component {
   }
 
   render() {
-    const { classes, todos } = this.props;
+    const { classes, todos, leftItems } = this.props;
     const { activeBtn } = this.state;
 
-    const leftItems = todos.reduce(
-      (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
-      0
-    );
     return (
       <div className={classes.list__wrapper}>
         <ul className={classes.list}>

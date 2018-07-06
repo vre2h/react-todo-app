@@ -79,7 +79,13 @@ class Main extends React.Component {
     const { classes } = this.props;
     const { todos, selectedFilter } = this.state;
 
+    const activeItems = todos.reduce(
+      (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
+      0
+    );
+
     const filteredTodos = filterBySelect(todos, selectedFilter);
+
     const leftItems = filteredTodos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
@@ -105,6 +111,7 @@ class Main extends React.Component {
             handleToDoItemRemover={this.handleToDoItemRemover}
             handleFilter={this.handleFilter}
             onToDoItemChange={this.onToDoItemChange}
+            leftItems={activeItems}
           />
         </div>
       </div>

@@ -96,6 +96,7 @@ class CreateToDoItem extends React.Component {
           value={value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
+          autoFocus
         />
         <Button
           className={classes.button}

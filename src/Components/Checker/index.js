@@ -21,7 +21,9 @@ class Checker extends React.Component {
 
   componentDidUpdate() {
     if (this.state.isEdit) {
-      setTimeout(() => this.textInput.focus(), 0);
+      setTimeout(() => {
+        this.textInput.focus();
+      }, 0);
     }
   }
 
@@ -74,7 +76,7 @@ class Checker extends React.Component {
             onChange={this.handleChangeOnEdit}
             onKeyDown={this.handleKeyDown}
             ref={input => (this.textInput = input)}
-            autoFocus={true}
+            autoFocus
           />
         ) : (
           <span

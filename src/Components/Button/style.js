@@ -12,6 +12,7 @@ export default {
   },
 
   'default--active': {
-    transform: 'translateY(-10px)'
+    background: '#a52a2a',
+    color: '#fff'
   }
 };

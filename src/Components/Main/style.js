@@ -11,7 +11,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    minHeight: '100vh'
+    marginTop: '40px'
   },
 
   title: {
@@ -22,9 +22,9 @@ export default {
     cursor: 'pointer',
     transition: '.3s',
     '&-dark': {
-      color: titleColors[2],
+      color: titleColors[0],
       '&:hover': {
-        color: titleColors[0]
+        color: titleColors[2]
       }
     },
     '&-light': {

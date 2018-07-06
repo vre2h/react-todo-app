@@ -78,6 +78,17 @@ class CreateToDoItem extends React.Component {
               : classes.toggleAll
           }
         />
+        <span
+          className={
+            length > 0
+              ? classes['toggleAll-custom--down'] +
+                ' ' +
+                classes['toggleAll-custom']
+              : classes['toggleAll-custom']
+          }
+        >
+          ❯
+        </span>
         <input
           className={classes.input}
           type="text"

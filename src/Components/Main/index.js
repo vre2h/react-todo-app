@@ -42,13 +42,18 @@ class Main extends React.Component {
     const { todos } = this.state;
     const index = todos.findIndex(elem => elem.id === todo.id);
 
+    const newTodoItem = {
+      value,
+      isComplete: todo.isComplete,
+      id: todo.id
+    };
+    const jsonNewTodoItem = JSON.stringify(newTodoItem);
+
+    localStorage.setItem(todo.id, jsonNewTodoItem);
+
     const newTodos = [
       ...todos.slice(0, index),
-      {
-        value,
-        isComplete: todo.isComplete,
-        id: todo.id
-      },
+      newTodoItem,
       ...todos.slice(index + 1)
     ];
 

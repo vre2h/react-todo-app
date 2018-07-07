@@ -1,14 +1,17 @@
 const markToDo = (todo, list) => {
   return list.reduce((acc, { value, isComplete, id }, index) => {
     if (value === todo.value && todo.id === id) {
-      return [
-        ...acc,
-        {
-          value,
-          isComplete: !isComplete,
-          id
-        }
-      ];
+      const newTodo = {
+        value,
+        isComplete: !isComplete,
+        id
+      };
+
+      const jsonTodo = JSON.stringify(newTodo);
+
+      localStorage.setItem(todo.id, jsonTodo);
+
+      return [...acc, newTodo];
     }
 
     return [...acc, { value, isComplete, id }];
@@ -16,6 +19,8 @@ const markToDo = (todo, list) => {
 };
 
 const removeToDo = (todo, list) => {
+  localStorage.removeItem(todo.id);
+
   return list.reduce((acc, { value, isComplete, id }, index) => {
     if (value === todo.value && todo.id === id) {
       return [...acc];

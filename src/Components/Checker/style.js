@@ -29,9 +29,10 @@ export default {
     fill: '#e9e9e9',
     position: 'relative',
     order: '-1',
-    marginRight: '10px',
-    marginLeft: '16px',
-    fontSize: 0,
+    height: '100%',
+    padding: '0 10px',
+    paddingTop: 'calc((49px - 20px) / 2)',
+    fontSize: '0',
     transition: '.2s'
   },
 

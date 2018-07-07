@@ -16,7 +16,7 @@ class CreateToDoItem extends React.Component {
     name: 'Stranger'
   };
 
-  static mainIdx = 0;
+  static mainIdx = Object.keys(localStorage).length;
 
   constructor(props) {
     super(props);

@@ -1,14 +1,9 @@
 const getAllStorage = () => {
-  const todosFromStorage = [];
   const keys = Object.keys(localStorage);
-  let i = keys.length - 1;
-
-  while (i >= 0) {
-    todosFromStorage.push(JSON.parse(localStorage.getItem(keys[i])));
-    i -= 1;
-  }
-
-  return todosFromStorage;
+  return keys.reduce((acc, elem) => {
+    const todo = JSON.parse(localStorage.getItem(elem));
+    return [todo, ...acc];
+  }, []);
 };
 
 export default getAllStorage;

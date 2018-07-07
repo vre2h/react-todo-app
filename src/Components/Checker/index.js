@@ -90,6 +90,7 @@ class Checker extends React.Component {
         <span
           className={classes.customCheckbox}
           onPointerDown={this.props.onClick}
+          onTouchStart={this.props.onClick}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

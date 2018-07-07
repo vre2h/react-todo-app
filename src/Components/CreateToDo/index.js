@@ -2,6 +2,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 
+import getHighestId from './localStorageHelper';
 import Button from '../Button';
 
 import style from './style';
@@ -16,7 +17,7 @@ class CreateToDoItem extends React.Component {
     name: 'Stranger'
   };
 
-  static mainIdx = Object.keys(localStorage).length;
+  static mainIdx = getHighestId();
 
   constructor(props) {
     super(props);

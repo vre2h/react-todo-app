@@ -30,7 +30,6 @@ class Checker extends React.Component {
   }
 
   handleClickOut() {
-    console.log('a');
     this.setState(prevState => ({
       isEdit: false
     }));

@@ -51,10 +51,15 @@ class CreateToDoItem extends React.Component {
         }
       });
 
-      this.props.onToDoItemCreate({
+      const todo = {
         ...this.state.todo,
         id: (CreateToDoItem.mainIdx += 1)
-      });
+      };
+      const jsonTodo = JSON.stringify(todo);
+
+      localStorage.setItem(todo.id, jsonTodo);
+
+      this.props.onToDoItemCreate(todo);
     }
   }
 

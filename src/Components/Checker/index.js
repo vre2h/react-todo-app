@@ -22,7 +22,7 @@ class Checker extends React.Component {
   componentDidUpdate() {
     if (this.state.isEdit) {
       setTimeout(() => {
-        this.textInput.focus();
+        this.textInput.current.focus();
       }, 0);
     }
   }
@@ -75,7 +75,7 @@ class Checker extends React.Component {
             value={value}
             onChange={this.handleChangeOnEdit}
             onKeyDown={this.handleKeyDown}
-            ref={input => (this.textInput = input)}
+            ref={this.textInput}
             autoFocus
           />
         ) : (
@@ -87,7 +87,10 @@ class Checker extends React.Component {
             {this.props.value}
           </span>
         )}
-        <span className={classes.customCheckbox} onClick={this.props.onClick}>
+        <span
+          className={classes.customCheckbox}
+          onPointerDown={this.props.onClick}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

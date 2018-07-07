@@ -4,15 +4,18 @@ import injectSheet from 'react-jss';
 import CreateToDoItem from '../CreateToDo';
 import ToDoList from '../ToDoList';
 import filterBySelect from './FilterBySelect.js';
-
+import getAllStorage from './getFromLocalStorage';
 import style from './style';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
+
+    const todosFromStorage = getAllStorage();
+
     this.state = {
       selectedFilter: 'All',
-      todos: [],
+      todos: [...todosFromStorage],
       themes: 'dark'
     };
 

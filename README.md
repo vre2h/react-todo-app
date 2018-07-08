@@ -1,11 +1,11 @@
 # My second React App
 
+[![Build Status](https://travis-ci.org/vre2h/react-todo-app.svg?branch=master)](https://travis-ci.org/vre2h/react-todo-app)
+
 It's a simple search system which I've made during my learning process.
 
 Below you can find information about React and create-react-app
 
----
----
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

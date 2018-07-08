@@ -1,6 +1,6 @@
 import { removeToDo } from '../../Components/ToDoList/ListFilter';
 
-it('Remover works!', () => {
+xit('Remover works!', () => {
   const expected = [{ value: '11', isComplete: false, id: 3 }];
   expect(expected).toEqual(
     removeToDo({ value: '10', isComplete: false, id: 4 }, [

@@ -68,18 +68,16 @@ class Checker extends React.Component {
     const { value, isEdit } = this.state;
 
     return (
-      <ClickOutComponent onClickOut={this.handleClickOut}>
-        <React.Fragment>
-          <input
-            type="checkbox"
-            className={`${classes.list__checkbox} ${
-              this.props.classes.default
-            }`}
-            onChange={this.props.onChange}
-            id={this.props.id}
-            checked={this.props.checked}
-          />
-          {isEdit ? (
+      <React.Fragment>
+        <input
+          type="checkbox"
+          className={`${classes.list__checkbox} ${this.props.classes.default}`}
+          onChange={this.props.onChange}
+          id={this.props.id}
+          checked={this.props.checked}
+        />
+        {isEdit ? (
+          <ClickOutComponent onClickOut={this.handleClickOut}>
             <input
               type="text"
               className={classes.list__edit}
@@ -89,44 +87,44 @@ class Checker extends React.Component {
               ref={this.textInput}
               autoFocus
             />
-          ) : (
-            <span
-              className={classes.list__label}
-              onPointerDown={this.handleDoubleClick}
-              onTouchStart={this.handleDoubleClick}
-            >
-              {this.props.value}
-            </span>
-          )}
+          </ClickOutComponent>
+        ) : (
           <span
-            className={classes.customCheckbox}
-            onPointerDown={this.props.onClick}
-            onTouchStart={this.props.onClick}
+            className={classes.list__label}
+            onPointerDown={this.handleDoubleClick}
+            onTouchStart={this.handleDoubleClick}
           >
+            {this.props.value}
+          </span>
+        )}
+        <span
+          className={classes.customCheckbox}
+          onPointerDown={this.props.onClick}
+          onTouchStart={this.props.onClick}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M22 2v20h-20v-20h20zm2-2h-24v24h24v-24z" />
             <svg
+              className={
+                this.props.checked
+                  ? classes['customCheckbox--mark']
+                  : classes['customCheckbox--hide']
+              }
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
             >
-              <path d="M22 2v20h-20v-20h20zm2-2h-24v24h24v-24z" />
-              <svg
-                className={
-                  this.props.checked
-                    ? classes['customCheckbox--mark']
-                    : classes['customCheckbox--hide']
-                }
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" />
-              </svg>
+              <path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" />
             </svg>
-          </span>
-        </React.Fragment>
-      </ClickOutComponent>
+          </svg>
+        </span>
+      </React.Fragment>
     );
   }
 }

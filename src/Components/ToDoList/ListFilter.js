@@ -7,10 +7,6 @@ const markToDo = (todo, list) => {
         id
       };
 
-      const jsonTodo = JSON.stringify(newTodo);
-
-      localStorage.setItem(todo.id, jsonTodo);
-
       return [...acc, newTodo];
     }
 
@@ -19,8 +15,6 @@ const markToDo = (todo, list) => {
 };
 
 const removeToDo = (todo, list) => {
-  localStorage.removeItem(todo.id);
-
   return list.reduce((acc, { value, isComplete, id }, index) => {
     if (value === todo.value && todo.id === id) {
       return [...acc];

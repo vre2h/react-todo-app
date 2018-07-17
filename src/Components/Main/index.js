@@ -4,14 +4,14 @@ import injectSheet from 'react-jss';
 import CreateToDoItem from '../CreateToDo';
 import ToDoList from '../ToDoList';
 import filterBySelect from './FilterBySelect.js';
-import getAllStorage from './getFromLocalStorage';
 import style from './style';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
 
-    const todosFromStorage = getAllStorage();
+    const todosFromStorage =
+      JSON.parse(localStorage.getItem('v-todo-todos')) || [];
 
     this.state = {
       selectedFilter: 'All',
@@ -35,9 +35,13 @@ class Main extends React.Component {
 
   onToDoItemCreate(value) {
     const { todos } = this.state;
+    const newTodos = [value, ...todos];
+
+    const jsonNewTodos = JSON.stringify(newTodos);
+    localStorage.setItem('v-todo-todos', jsonNewTodos);
 
     this.setState({
-      todos: [value, ...todos]
+      todos: newTodos
     });
   }
 
@@ -50,15 +54,14 @@ class Main extends React.Component {
       isComplete: todo.isComplete,
       id: todo.id
     };
-    const jsonNewTodoItem = JSON.stringify(newTodoItem);
-
-    localStorage.setItem(todo.id, jsonNewTodoItem);
 
     const newTodos = [
       ...todos.slice(0, index),
       newTodoItem,
       ...todos.slice(index + 1)
     ];
+    const jsonNewTodos = JSON.stringify(newTodos);
+    localStorage.setItem('v-todo-todos', jsonNewTodos);
 
     this.setState({
       todos: newTodos
@@ -66,12 +69,18 @@ class Main extends React.Component {
   }
 
   handleToDoItemMaker(todos) {
+    const jsonNewTodos = JSON.stringify(todos);
+    localStorage.setItem('v-todo-todos', jsonNewTodos);
+
     this.setState({
       todos: todos
     });
   }
 
   handleToDoItemRemover(todos) {
+    const jsonNewTodos = JSON.stringify(todos);
+    localStorage.setItem('v-todo-todos', jsonNewTodos);
+
     this.setState({
       todos: todos
     });
@@ -86,14 +95,11 @@ class Main extends React.Component {
   render() {
     const { classes } = this.props;
     const { todos, selectedFilter } = this.state;
-
     const activeItems = todos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0
     );
-
     const filteredTodos = filterBySelect(todos, selectedFilter);
-
     const leftItems = filteredTodos.reduce(
       (acc, { value, isComplete }) => (isComplete === false ? (acc += 1) : acc),
       0

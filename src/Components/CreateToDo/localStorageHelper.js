@@ -1,9 +1,9 @@
 const getHighestId = () => {
-  const keys = Object.keys(localStorage);
+  const todosFromStorage = localStorage.getItem('v-todo-todos');
+  const jsonTodos = JSON.parse(todosFromStorage) || [];
 
-  return keys.reduce((acc, elem) => {
-    const todo = JSON.parse(localStorage.getItem(elem));
-    const id = Number(todo.id);
+  return jsonTodos.reduce((acc, elem) => {
+    const id = Number(elem.id);
 
     return id > acc ? id : acc;
   }, 0);
